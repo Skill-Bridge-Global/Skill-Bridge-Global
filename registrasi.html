@@ -20,7 +20,7 @@
 
         body {
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background:var(--light-color);
+            background:#eff6ff;
             color:var(--text-color);
             line-height:1.6;
         }
@@ -53,34 +53,34 @@
             color:var(--accent-color);
         }
 
-        .nav-links {
-            display:flex;
-            gap:2rem;
-            list-style:none;
+        .nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
         }
 
-        .nav-links a {
-            color:var(--text-color);
-            text-decoration:none;
-            font-weight:500;
-            transition:0.3s;
-        }
+.nav-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 0.5rem; 
+}
 
-        .nav-links a:hover {
-            color:var(--primary-color);
-        }
+.nav-btn:hover {
+    background: var(--secondary-color);
+}
 
-        .nav-btn {
-            background:var(--primary-color);
-            color:white;
-            padding:.75rem 1.5rem;
-            border:none;
-            border-radius:.5rem;
-            cursor:pointer;
-            font-weight:600;
-        }
+.nav-actions {
+    display: flex;
+}
 
-        .nav-btn:hover { background:var(--secondary-color); }
 
         /* REGISTER FORM */
         .register-section {
@@ -208,13 +208,10 @@
     <header>
         <nav>
             <div class="logo">SkillBridge<span>Global</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="#features">Fitur</a></li>
-                <li><a href="#how-it-works">Cara Kerja</a></li>
-                <li><a href="#about">Tentang</a></li>
-            </ul>
+            <div class="nav-actions">
+            <a href="index.html" class="nav-btn">Beranda</a>
             <a href="login.html" class="nav-btn">Login</a>
+            </div>
         </nav>
     </header>
 

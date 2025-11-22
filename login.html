@@ -53,34 +53,52 @@
             color:var(--accent-color);
         }
 
-        .nav-links {
+        nav {
+            max-width:1200px;
+            margin:auto;
+            padding:1rem 2rem;
             display:flex;
-            gap:2rem;
-            list-style:none;
+            justify-content:space-between;
+            align-items:center;
         }
 
-        .nav-links a {
-            color:var(--text-color);
-            text-decoration:none;
-            font-weight:500;
-            transition:0.3s;
-        }
-
-        .nav-links a:hover {
+        .logo {
+            font-size:1.8rem;
+            font-weight:bold;
             color:var(--primary-color);
         }
 
-        .nav-btn {
-            background:var(--primary-color);
-            color:white;
-            padding:.75rem 1.5rem;
-            border:none;
-            border-radius:.5rem;
-            cursor:pointer;
-            font-weight:600;
+        .logo span {
+            color:var(--accent-color);
         }
 
-        .nav-btn:hover { background:var(--secondary-color); }
+        .nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        }
+
+.nav-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 0.5rem; 
+}
+
+.nav-btn:hover {
+    background: var(--secondary-color);
+}
+
+.nav-actions {
+    display: flex;
+}
 
         /* === Center area === */
         .page-center {
@@ -147,7 +165,7 @@
             background: #1d4ed8;
         }
 
-        p {
+        .card p {
             margin-top: 16px;
             text-align: center;
             font-size: 14px;
@@ -168,6 +186,52 @@
             font-size: 14px;
             text-align: center;
         }
+
+/* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
     </style>
 </head>
 
@@ -176,13 +240,10 @@
     <header>
         <nav>
             <div class="logo">SkillBridge<span>Global</span></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="#features">Fitur</a></li>
-                <li><a href="#how-it-works">Cara Kerja</a></li>
-                <li><a href="#about">Tentang</a></li>
-            </ul>
+            <div class="nav-actions">
+            <a href="index.html" class="nav-btn">Beranda</a>
             <a href="registrasi.html" class="nav-btn">Daftar</a>
+            </div>
         </nav>
     </header>
 
@@ -200,6 +261,50 @@
             <p>Belum punya akun? <a href="register.html">Daftar</a></p>
         </div>
     </div>
+
+            <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SkillBridge Global</h4>
+                <p>Platform penghubung talenta Indonesia dengan peluang kerja global yang sesungguhnya.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="#">Cari Proyek</a></li>
+                    <li><a href="#">Posting Proyek</a></li>
+                    <li><a href="#">Komunitas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privasi</a></li>
+                    <li><a href="#">Persyaratan</a></li>
+                    <li><a href="#">Keamanan</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 SkillBridge Global. Semua hak dilindungi.</p>
+        </div>
+    </footer>
 
     <script>
         function login() {

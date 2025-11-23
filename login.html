@@ -308,30 +308,31 @@
     </footer>
 
     <script>
-        function login() {
-            let email = document.getElementById("email").value;
-            let pass = document.getElementById("password").value;
-            let error = document.getElementById("error");
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault(); 
 
-            let user = JSON.parse(localStorage.getItem("userData"));
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const error = document.getElementById('error');
 
-            if (!email || !pass) {
-                error.textContent = "Email dan password harus diisi!";
-                return;
-            }
+    const user = JSON.parse(localStorage.getItem(email));
 
-            if (!user) {
-                error.textContent = "Akun belum terdaftar. Silakan register.";
-                return;
-            }
+    if (!user) {
+        error.textContent = "Akun belum terdaftar. Silakan registrasi.";
+        return;
+    }
 
-            if (email === user.email && pass === user.password) {
-                localStorage.setItem("loggedIn", "true");
-                window.location.href = "marketplace.html";
-            } else {
-                error.textContent = "Email atau password salah!";
-            }
-        }
+    if (email === user.email && password === user.password) {
+ 
+        sessionStorage.setItem('loggedInUser', email);
+
+        alert('Login berhasil!');
+
+        window.location.href = 'dashboard.html';
+    } else {
+        error.textContent = "Email atau password salah!";
+    }
+});
     </script>
 
 </body>

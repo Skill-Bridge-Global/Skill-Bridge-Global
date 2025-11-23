@@ -276,7 +276,7 @@
         <header>
             <div class="header-left">
                 <h1>Dashboard</h1>
-                <h2>Selamat Datang, John!</h2>
+                <h2>Selamat datang, <span id="user-name"></span></h2>
             </div>
             <div class="header-right">
                 <input class="search-box" type="text" placeholder="Search...">
@@ -338,6 +338,15 @@
                     </tbody>
                 </table>
     </div>
-
 </body>
+
+    <script>
+    const userEmail = sessionStorage.getItem('loggedInUser');
+    if (userEmail) {
+        const user = JSON.parse(localStorage.getItem(userEmail));
+        document.getElementById('user-name').textContent = user.fullname;
+    } else {
+        window.location.href = 'login.html';  // Redirect ke halaman login jika tidak ada session
+    }
+</script>
 </html>

@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillBridge Dashboard</title>
     <style>
-        /* Global Styles */
-        body {
+        {
             margin: 0;
             font-family: "Segoe UI", sans-serif;
             background: #f1f5f9;
@@ -254,8 +253,6 @@
     </style>
 </head>
 <body>
-
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <div>
             <div class="logo">SKILL BRIDGE</div>
@@ -271,7 +268,6 @@
         <div class="nav-item"><span class="icon">🚪</span> Log Out</div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="main-content">
         <header>
             <div class="header-left">
@@ -289,7 +285,6 @@
         </header>
 
         <section class="dashboard">
-
             <div class="rating-earning-container">
                 <!-- Rating Container -->
                 <div class="rating-container">
@@ -299,7 +294,7 @@
                     </div>
                     <p>Respond rate: 90%</p>
                     <p>Order completion: 1.298</p>
-                </div>
+             </div>
 
                 <!-- Earning Reports -->
                 <div class="earning-reports">
@@ -309,10 +304,8 @@
                         <img src="https://via.placeholder.com/400x200" alt="Earning Graph">
                     </div>
                 </div>
-            </div>
-
+                
         </section>
-
         <div class="active-projects">
             <h3>Active Projects (12)</h3>
             <button class="add-new-project">Add New Project</button>
@@ -337,16 +330,17 @@
                         </tr>
                     </tbody>
                 </table>
-    </div>
+            </div>
+        </div>
 </body>
 
     <script>
-    const userEmail = sessionStorage.getItem('loggedInUser');
-    if (userEmail) {
-        const user = JSON.parse(localStorage.getItem(userEmail));
-        document.getElementById('user-name').textContent = user.fullname;
-    } else {
-        window.location.href = 'login.html';  // Redirect ke halaman login jika tidak ada session
-    }
+const userEmail = sessionStorage.getItem('loggedInUser');
+
+if (userEmail) {
+    const user = JSON.parse(localStorage.getItem(userEmail));
+    document.getElementById('user-name').textContent = user.fullname; 
+} else {
+    window.location.href = 'login.html';
 </script>
 </html>

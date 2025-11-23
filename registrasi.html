@@ -287,6 +287,34 @@
             <p>&copy; 2025 SkillBridge Global. Semua hak dilindungi.</p>
         </div>
     </footer>
-
 </body>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();  // Mencegah form disubmit
+
+    const fullname = document.getElementById('register-fullname').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+
+    // Cek jika email sudah terdaftar di localStorage
+    if (localStorage.getItem(email)) {
+        alert('Email sudah terdaftar!');
+        return;
+    }
+
+    // Simpan data pengguna di localStorage
+    const user = {
+        fullname: fullname,
+        email: email,
+        password: password  // Harusnya di-hash di backend, ini hanya contoh
+    };
+
+    // Simpan user dengan email sebagai key
+    localStorage.setItem(email, JSON.stringify(user));
+
+    alert('Registrasi berhasil! Silakan login.');
+    window.location.href = 'login.html';  // Redirect ke halaman login
+});
+
+    </script>
 </html>

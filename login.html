@@ -247,21 +247,21 @@
         </nav>
     </header>
 
-    <div class="page-center">
-        <div class="card">
-            <h2>Login</h2>
+    <div class="card">
+    <h2>Login</h2>
 
-            <div id="error" class="error"></div>
+    <div id="error" class="error"></div>
 
-            <input type="email" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
+    <form id="login-form">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
 
-            <button onclick="login()">Masuk <a href="dashboard.html"></a></button>
-            
+        <button type="submit">Masuk</button>
+    </form>
 
-            <p>Belum punya akun? <a href="register.html">Daftar</a></p>
-        </div>
+    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
     </div>
+
 
             <!-- Footer -->
     <footer>
@@ -308,33 +308,30 @@
     </footer>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Mencegah form melakukan reload halaman
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const error = document.getElementById('error');
 
-    const user = JSON.parse(localStorage.getItem(email));
+    const user = JSON.parse(localStorage.getItem(email)); // Mengecek apakah ada akun yang terdaftar
 
     if (!user) {
-        error.textContent = "Akun belum terdaftar. Silakan registrasi.";
+        error.textContent = "Akun belum terdaftar. Silakan registrasi."; // Menampilkan pesan error
         return;
     }
 
-    if (email === user.email && password === user.password) {
- 
-        sessionStorage.setItem('loggedInUser', email);
+    if (email === user.email && password === user.password) { // Validasi email dan password
+        sessionStorage.setItem('loggedInUser', email); // Menyimpan data user yang login
 
-        alert('Login berhasil!');
+        alert('Login berhasil!'); // Notifikasi login berhasil
 
-        window.location.href = 'dashboard.html';
+        window.location.href = 'dashboard.html'; // Mengarahkan ke halaman dashboard
     } else {
-        error.textContent = "Email atau password salah!";
+        error.textContent = "Email atau password salah!"; // Menampilkan pesan error jika login gagal
     }
-});
+    });
     </script>
-
 </body>
-
 </html>

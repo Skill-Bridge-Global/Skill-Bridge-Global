@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Login - SkillBridge Global</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - SkillBridge Global</title>
 
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -19,10 +19,10 @@
         }
 
         body {
-            margin:0;
-            font-family:"Segoe UI", sans-serif;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background:#eff6ff;
             color:var(--text-color);
+            line-height:1.6;
         }
 
         /* Header */
@@ -32,25 +32,6 @@
             position:sticky;
             top:0;
             z-index:1000;
-        }
-
-        nav {
-            max-width:1200px;
-            margin:auto;
-            padding:1rem 2rem;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
-
-        .logo {
-            font-size:1.8rem;
-            font-weight:bold;
-            color:var(--primary-color);
-        }
-
-        .logo span {
-            color:var(--accent-color);
         }
 
         nav {
@@ -100,94 +81,82 @@
     display: flex;
 }
 
-        /* === Center area === */
-        .page-center {
-            min-height: calc(100vh - 100px); 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 40px;   
+
+        /* REGISTER FORM */
+        .register-section {
+            max-width:450px;
+            margin:4rem auto;
+            background:white;
+            padding:2.5rem;
+            border-radius:1rem;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
         }
 
-
-        .card {
-            width: 380px;
-            background: #ffffff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            animation: fade .3s ease;
+        .register-section h2 {
+            text-align:center;
+            margin-bottom:1rem;
+            color:var(--dark-color);
         }
 
-        @keyframes fade {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
+        .register-section p {
+            text-align:center;
+            margin-bottom:2rem;
+            font-size:0.95rem;
         }
 
-        h2 {
-            margin-top: 0;
-            color: #2563eb;
-            font-weight: 700;
-            text-align: center;
+        .form-group {
+            margin-bottom:1.2rem;
+        }
+
+        label {
+            display:block;
+            margin-bottom:.5rem;
+            font-weight:600;
         }
 
         input {
-            width: 100%;
-            padding: 12px;
-            margin-top: 14px;
-            border-radius: 0.6rem;
-            border: 1.5px solid #cbd5e1;
-            font-size: 15px;
-            transition: 0.2s;
+            width:100%;
+            padding:.9rem;
+            border:1px solid var(--border-color);
+            border-radius:.5rem;
+            font-size:1rem;
         }
 
         input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-            outline: none;
+            border-color:var(--primary-color);
+            outline:none;
         }
 
-        .card button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            background: #f59e0b;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 0.6rem;
-            cursor: pointer;
-            transition: .2s;
+        .btn-primary {
+            width:100%;
+            background:var(--accent-color);
+            color:white;
+            padding:1rem;
+            border:none;
+            border-radius:.5rem;
+            font-size:1rem;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
         }
 
-        button:hover {
-            background: #1d4ed8;
+        .btn-primary:hover {
+            background:#d97706;
         }
 
-        .card p {
-            margin-top: 16px;
-            text-align: center;
-            font-size: 14px;
-            color: #4b5563;
+        .login-link {
+            text-align:center;
+            margin-top:1.2rem;
+            font-size:0.95rem;
         }
 
-        a {
-            color: #f59e0b;
-            font-weight: 600;
-            text-decoration: none;
+        .login-link a {
+            color:var(--primary-color);
+            text-decoration:none;
+            font-weight:600;
         }
 
-        a:hover { text-decoration: underline; }
-
-        .error {
-            color: red;
-            margin-top: 10px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-/* Footer */
+                /* Footer */
         footer {
             background: var(--dark-color);
             color: white;
@@ -232,33 +201,8 @@
             border-top: 1px solid #374151;
             color: #9ca3af;
         }
-
-        /* Untuk perangkat dengan layar kecil */
-@media (max-width: 768px) {
-    .card {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    .nav-actions a {
-        padding: 0.5rem 1rem;
-    }
-
-    footer {
-        padding: 2rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
     </style>
 </head>
-
 <body>
 
     <header>
@@ -266,28 +210,41 @@
             <div class="logo">SkillBridge<span>Global</span></div>
             <div class="nav-actions">
             <a href="index.html" class="nav-btn">Beranda</a>
-            <a href="registrasi.html" class="nav-btn">Daftar</a>
+            <a href="login.html" class="nav-btn">Login</a>
             </div>
         </nav>
     </header>
 
-    <div class="card">
-    <h2>Login</h2>
+    <section class="register-section">
+        <h2>Buat Akun Baru</h2>
+        <p>Mulai perjalanan karir global Anda bersama SkillBridge Global.</p>
 
-    <div id="error" class="error"></div>
+        <form>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="fullname" placeholder="Masukkan nama Anda">
+            </div>
 
-    <form id="login-form">
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="password" placeholder="Password">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Masukkan email">
+            </div>
 
-        <button type="submit">Masuk</button>
-    </form>
+            <div class="form-group">
+                <label>Kata Sandi</label>
+                <input type="password" placeholder="Buat kata sandi">
+            </div>
 
-    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
-    </div>
+            <button class="btn-primary" type="submit">Daftar Sekarang<a href="dashboard.html"></a></button>
+        </form>
 
+        <div class="login-link">
+            Sudah punya akun?
+            <a href="login.html">Masuk di sini</a>
+        </div>
+    </section>
 
-            <!-- Footer -->
+        <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -330,32 +287,33 @@
             <p>&copy; 2025 SkillBridge Global. Semua hak dilindungi.</p>
         </div>
     </footer>
-
+</body>
     <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Mencegah form melakukan reload halaman
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+            
+    const fullname = document.getElementById('register-fullname').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const error = document.getElementById('error');
-
-    const user = JSON.parse(localStorage.getItem(email)); // Mengecek apakah ada akun yang terdaftar
-
-    if (!user) {
-        error.textContent = "Akun belum terdaftar. Silakan registrasi."; // Menampilkan pesan error
+    // Cek jika email sudah terdaftar di localStorage
+    if (localStorage.getItem(email)) {
+        alert('Email sudah terdaftar!');
         return;
     }
 
-    if (email === user.email && password === user.password) { // Validasi email dan password
-        sessionStorage.setItem('loggedInUser', email); // Menyimpan data user yang login
+    // Simpan data pengguna di localStorage
+    const user = {
+        fullname: fullname,
+        email: email,
+        password: password
+    };
 
-        alert('Login berhasil!'); // Notifikasi login berhasil
+    localStorage.setItem(email, JSON.stringify(user));
 
-        window.location.href = 'dashboard.html'; // Mengarahkan ke halaman dashboard
-    } else {
-        error.textContent = "Email atau password salah!"; // Menampilkan pesan error jika login gagal
-    }
-    });
+    alert('Registrasi berhasil!');
+    window.location.href = 'dashboard.html'; 
+});
+
     </script>
-</body>
 </html>

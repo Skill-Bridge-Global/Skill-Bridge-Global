@@ -1,0 +1,395 @@
+/* Certification Center Styles */
+.main-content {
+    margin-left: 220px;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #F9FAFB;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1F2937;
+}
+
+/* Search and Filter */
+.search-filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-box-large {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #6B7280;
+}
+
+.search-input-large {
+    width: 100%;
+    padding: 1rem 1.25rem 1rem 3rem;
+    border: 2px solid #0066FF;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+.search-input-large:focus {
+    outline: none;
+    border-color: #0052CC;
+}
+
+.type-filter {
+    padding: 1rem 2rem 1rem 1.25rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    min-width: 150px;
+}
+
+.type-filter:focus {
+    outline: none;
+    border-color: #0066FF;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #FFFFFF;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Progress Cards */
+.progress-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.progress-card {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.progress-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.progress-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #F3F4F6;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.progress-info {
+    flex: 1;
+}
+
+.progress-status {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 0.25rem;
+}
+
+.progress-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.more-options {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6B7280;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Task Recommendation Section */
+.task-recommendation-section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 1.5rem;
+}
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.task-card {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.task-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.task-content {
+    padding: 1.25rem;
+}
+
+.task-type-badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.badge-uiux {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.badge-frontend {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+.badge-web-developer {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.task-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+/* Your Task Section */
+.your-task-section {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-table-container {
+    overflow-x: auto;
+}
+
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.tasks-table thead {
+    background-color: #F9FAFB;
+}
+
+.tasks-table th {
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tasks-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.task-name {
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.task-type-pill {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.pill-uiux {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.pill-frontend {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+.pill-web-developer {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.task-date {
+    color: #6B7280;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-done {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.status-in-progress {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .progress-cards-container,
+    .tasks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 70px;
+        padding: 1rem;
+    }
+    
+    .progress-cards-container,
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-filter-container {
+        flex-direction: column;
+    }
+    
+    .type-filter {
+        width: 100%;
+    }
+    
+    .hero-banner {
+        padding: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tasks-table {
+        font-size: 0.875rem;
+    }
+    
+    .tasks-table th,
+    .tasks-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+

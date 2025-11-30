@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - SkillBridge Global</title>
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        :root {
+            --primary-color:#2563eb;
+            --secondary-color:#1e40af;
+            --accent-color:#f59e0b;
+            --dark-color:#1f2937;
+            --light-color:#f9fafb;
+            --text-color:#374151;
+            --border-color:#e5e7eb;
+        }
+
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:#eff6ff;
+            color:var(--text-color);
+            line-height:1.6;
+        }
+
+        /* Header */
+        header {
+            background:white;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        nav {
+            max-width:1200px;
+            margin:auto;
+            padding:1rem 2rem;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .logo-image-header {
+            max-height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        }
+
+.nav-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 0.5rem; 
+}
+
+.nav-btn:hover {
+    background: var(--secondary-color);
+}
+
+.nav-actions {
+    display: flex;
+}
+
+
+        /* REGISTER FORM */
+        .register-section {
+            max-width:450px;
+            margin:4rem auto;
+            background:white;
+            padding:2.5rem;
+            border-radius:1rem;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .register-section h2 {
+            text-align:center;
+            margin-bottom:1rem;
+            color:var(--dark-color);
+        }
+
+        .register-section p {
+            text-align:center;
+            margin-bottom:2rem;
+            font-size:0.95rem;
+        }
+
+        .form-group {
+            margin-bottom:1.2rem;
+        }
+
+        label {
+            display:block;
+            margin-bottom:.5rem;
+            font-weight:600;
+        }
+
+        input {
+            width:100%;
+            padding:.9rem;
+            border:1px solid var(--border-color);
+            border-radius:.5rem;
+            font-size:1rem;
+        }
+
+        input:focus {
+            border-color:var(--primary-color);
+            outline:none;
+        }
+
+        .btn-primary {
+            width:100%;
+            background:var(--accent-color);
+            color:white;
+            padding:1rem;
+            border:none;
+            border-radius:.5rem;
+            font-size:1rem;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn-primary:hover {
+            background:#d97706;
+        }
+
+        .login-link {
+            text-align:center;
+            margin-top:1.2rem;
+            font-size:0.95rem;
+        }
+
+        .login-link a {
+            color:var(--primary-color);
+            text-decoration:none;
+            font-weight:600;
+        }
+
+                /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image-header">
+            </div>
+            <div class="nav-actions">
+            <a href="../../index.html" class="nav-btn">Beranda</a>
+            <a href="login.html" class="nav-btn">Masuk</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="register-section">
+        <h2>Buat Akun Baru</h2>
+        <p>Mulai perjalanan karir global Anda bersama SkillBridge Global.</p>
+
+        <form id="register-form">
+            <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" id="fullname" placeholder="Masukkan nama Anda" required>
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Masukkan email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Kata Sandi</label>
+        <input type="password" id="password" placeholder="Buat kata sandi" required>
+    </div>
+
+    <button class="btn-primary" type="submit">Daftar Sekarang</button>
+
+        <div class="login-link">
+            Sudah punya akun?
+            <a href="login.html">Masuk di sini</a>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SkillBridge Global</h4>
+                <p>Platform penghubung talenta Indonesia dengan peluang kerja global yang sesungguhnya.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="#">Cari Proyek</a></li>
+                    <li><a href="#">Posting Proyek</a></li>
+                    <li><a href="#">Komunitas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Berita</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privasi</a></li>
+                    <li><a href="#">Persyaratan</a></li>
+                    <li><a href="#">Keamanan</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 SkillBridge Global. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const fullname = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (localStorage.getItem(email)) {
+        alert('Email sudah terdaftar!');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    const user = {
+        fullname: fullname,
+        email: email,
+        password: password
+    };
+
+    localStorage.setItem(email, JSON.stringify(user)); 
+   
+    sessionStorage.setItem('loggedInUser', email);
+
+    alert('Registrasi berhasil!');
+
+    window.location.href = '../dashboard/index.html';
+});
+
+    </script>
+    
+</body>
+</html>

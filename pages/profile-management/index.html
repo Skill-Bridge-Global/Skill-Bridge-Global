@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/profile-management/index.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="../project-marketplace/index.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="../virtual-workspace/index.html" class="nav-item">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="../certification-center/index.html" class="nav-item">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="../payment-escrow/index.html" class="nav-item">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">My Profile</h1>
+            <div class="header-actions">
+                <button class="back-btn" onclick="window.location.href='../dashboard/index.html'">
+                    Back to homepage
+                </button>
+                <button class="notification-btn">🔔</button>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="my-profile">My Profile</button>
+            <button class="tab-btn" data-tab="rating">Rating</button>
+        </div>
+
+        <!-- Tab Content: My Profile -->
+        <div id="my-profile" class="tab-content active">
+            <div class="profile-layout">
+                <!-- Left Column -->
+                <div class="profile-left">
+                    <!-- Profile Header Card -->
+                    <div class="profile-header-card">
+                        <button class="edit-icon-btn" onclick="showEditProfileModal()" title="Edit Profile">✏️</button>
+                        <div class="profile-header-bg"></div>
+                        <div class="profile-main-info">
+                            <img src="https://i.pravatar.cc/120?img=12" alt="Profile" class="profile-avatar-large" id="profile-avatar">
+                            <h2 class="profile-name" id="profile-display-name">Jake Gyll</h2>
+                            <p class="profile-title">Product Designer at <strong>Twitter</strong></p>
+                            <p class="profile-location">📍 Manchester, UK</p>
+                            <button class="open-opportunities-btn">OPEN FOR OPPORTUNITIES</button>
+                        </div>
+                    </div>
+
+                    <!-- About Me Card -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>About Me</h3>
+                            <button class="icon-btn" onclick="editAboutMe()" title="Edit About Me">✏️</button>
+                        </div>
+                        <div class="about-content" id="about-content">
+                            <p>I'm a product designer + filmmaker currently working remotely at Twitter from beautiful Manchester, United Kingdom. I'm passionate about designing digital products that have a positive impact on the world.</p>
+                            <p>For 10 years, I've specialised in interface, experience & interaction design as well as working in user research and product strategy for product agencies, big tech companies & start-ups.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Card -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Skills</h3>
+                            <div class="header-actions">
+                                <button class="icon-btn" onclick="showAddSkillModal()" title="Add Skill">+</button>
+                                <button class="icon-btn" onclick="editSkills()" title="Edit Skills">✏️</button>
+                            </div>
+                        </div>
+                        <div class="skills-list" id="skills-list">
+                            <!-- Skills will be loaded by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Portfolios Card -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Portfolios</h3>
+                            <button class="icon-btn" onclick="showAddPortfolioModal()" title="Add Portfolio">+</button>
+                        </div>
+                        <div class="portfolios-grid" id="portfolios-grid">
+                            <!-- Portfolios will be loaded by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Experiences Card -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Experiences</h3>
+                            <button class="icon-btn" onclick="showAddExperienceModal()" title="Add Experience">+</button>
+                        </div>
+                        <div class="experiences-list" id="experiences-list">
+                            <!-- Experiences will be loaded by JavaScript -->
+                        </div>
+                        <button class="show-more-btn" id="show-more-exp">Show 3 more experiences</button>
+                    </div>
+
+                    <!-- Educations Card -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Educations</h3>
+                            <button class="icon-btn" onclick="showAddEducationModal()" title="Add Education">+</button>
+                        </div>
+                        <div class="educations-list" id="educations-list">
+                            <!-- Educations will be loaded by JavaScript -->
+                        </div>
+                        <button class="show-more-btn" id="show-more-edu">Show 2 more educations</button>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="profile-right">
+                    <!-- Additional Details Card -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Additional Details</h3>
+                            <button class="icon-btn" onclick="editAdditionalDetails()" title="Edit Additional Details">✏️</button>
+                        </div>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-icon">📧</span>
+                                <div class="info-content">
+                                    <p class="info-label">Email</p>
+                                    <p class="info-value" id="profile-email">jakegyll@email.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">📱</span>
+                                <div class="info-content">
+                                    <p class="info-label">Phone</p>
+                                    <p class="info-value" id="profile-phone">+44 1245 572 135</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🌐</span>
+                                <div class="info-content">
+                                    <p class="info-label">Languages</p>
+                                    <p class="info-value" id="profile-languages">English, French</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links Card -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3>Social Links</h3>
+                            <button class="icon-btn" onclick="editSocialLinks()" title="Edit Social Links">✏️</button>
+                        </div>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-icon">📷</span>
+                                <div class="info-content">
+                                    <p class="info-label">Instagram</p>
+                                    <a href="#" class="info-link" id="profile-instagram">instagram.com/jakegyll</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🐦</span>
+                                <div class="info-content">
+                                    <p class="info-label">Twitter</p>
+                                    <a href="#" class="info-link" id="profile-twitter">twitter.com/jakegyll</a>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-icon">🌍</span>
+                                <div class="info-content">
+                                    <p class="info-label">Website</p>
+                                    <a href="#" class="info-link" id="profile-website">www.jakegyll.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Rating -->
+        <div id="rating" class="tab-content">
+            <div class="rating-layout">
+                <!-- Performance Card -->
+                <div class="performance-card">
+                    <div class="card-header">
+                        <h3>Performance</h3>
+                        <button class="expand-icon">↗</button>
+                    </div>
+                    <div class="performance-chart">
+                        <svg class="donut-chart" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="#E5E7EB" stroke-width="20"/>
+                            <circle cx="100" cy="100" r="80" fill="none" stroke="#0066FF" stroke-width="20"
+                                stroke-dasharray="452" stroke-dashoffset="45" transform="rotate(-90 100 100)"/>
+                            <text x="100" y="95" text-anchor="middle" font-size="36" font-weight="bold" fill="#1F2937">90%</text>
+                        </svg>
+                    </div>
+                    <div class="performance-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">😊</span>
+                            <div>
+                                <p class="stat-value">90%</p>
+                                <p class="stat-label">Respond rate</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">✅</span>
+                            <div>
+                                <p class="stat-value">1.298</p>
+                                <p class="stat-label">Order completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rating Bars Card -->
+                <div class="rating-bars-card">
+                    <h3>Rating</h3>
+                    <div class="rating-bars" id="rating-bars">
+                        <!-- Rating bars will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="reviews-section">
+                <div id="reviews-container">
+                    <!-- Reviews will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Basic Information</h2>
+                <button class="close-modal" onclick="closeModal('edit-profile-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">This is your personal information that you can update anytime.</p>
+                
+                <!-- Profile Photo -->
+                <div class="form-section">
+                    <h3>Profile Photo</h3>
+                    <p class="section-description">This image will be shown publicly as your profile picture, it will help recruiters recognize you!</p>
+                    <div class="photo-upload-section">
+                        <div class="current-photo">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Profile" id="modal-profile-preview">
+                        </div>
+                        <div class="upload-area-modal">
+                            <input type="file" id="modal-photo-upload" accept="image/*" hidden>
+                            <label for="modal-photo-upload" class="upload-label-modal">
+                                <span class="upload-icon">🖼️</span>
+                                <p>Click to replace <span class="text-muted">or drag and drop</span></p>
+                                <p class="file-types">SVG, PNG, JPG or GIF (max. 400 x 400px)</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Details -->
+                <div class="form-section">
+                    <h3>Personal Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="modal-full-name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="modal-full-name" placeholder="Jake Gyll" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="modal-phone" placeholder="+44 1245 572 135" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-email">Email <span class="required">*</span></label>
+                            <input type="email" id="modal-email" placeholder="Jakegyll@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-dob">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="modal-dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modal-gender">Gender <span class="required">*</span></label>
+                            <select id="modal-gender" required>
+                                <option value="male" selected>Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+                <div class="form-section">
+                    <h3>Account Type</h3>
+                    <p class="section-description">You can update your account type</p>
+                    <div class="account-type-options">
+                        <label class="radio-card">
+                            <input type="radio" name="modal-account-type" value="job-seeker" checked>
+                            <div class="radio-content">
+                                <span class="radio-icon">🔵</span>
+                                <div>
+                                    <h4>Job Seeker</h4>
+                                    <p>Looking for a job</p>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="modal-account-type" value="employer">
+                            <div class="radio-content">
+                                <span class="radio-icon">⚪</span>
+                                <div>
+                                    <h4>Employer</h4>
+                                    <p>Hiring, sourcing candidates, or posting a jobs</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeModal('edit-profile-modal')">Cancel</button>
+                    <button class="btn-submit" onclick="saveProfile()">Save Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Education Modal -->
+    <div id="education-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Education</h2>
+                <button class="close-modal" onclick="closeModal('education-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="education-form">
+                    <div class="form-group">
+                        <label for="edu-program">Program Name <span class="required">*</span></label>
+                        <input type="text" id="edu-program" placeholder="e.g. Computer Science, Business Administration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu-institution">Institution <span class="required">*</span></label>
+                        <input type="text" id="edu-institution" placeholder="e.g. University of Technology, State University" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu-city">City <span class="required">*</span></label>
+                        <input type="text" id="edu-city" placeholder="e.g. Jakarta, Bandung, Surabaya" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu-period">Period <span class="required">*</span></label>
+                        <div class="date-input-wrapper">
+                            <input type="text" id="edu-period" placeholder="Select period" required>
+                            <span class="calendar-icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu-certificate">Certificate</label>
+                        <label for="edu-certificate-file" class="file-upload-label">
+                            <span class="upload-icon">↑</span>
+                            Upload document
+                            <input type="file" id="edu-certificate-file" accept=".pdf,.doc,.docx" hidden>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="edu-description">Description</label>
+                        <textarea id="edu-description" rows="4" placeholder="Describe your education background, achievements, and relevant coursework"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('education-modal')">Cancel</button>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Experience Modal -->
+    <div id="experience-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Experience</h2>
+                <button class="close-modal" onclick="closeModal('experience-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="experience-form">
+                    <div class="form-group">
+                        <label for="exp-role">Role <span class="required">*</span></label>
+                        <input type="text" id="exp-role" placeholder="e.g. Senior Frontend Developer, UI/UX Designer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-company">Company <span class="required">*</span></label>
+                        <input type="text" id="exp-company" placeholder="e.g. Tech Company Inc., Design Studio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-city">City <span class="required">*</span></label>
+                        <input type="text" id="exp-city" placeholder="e.g. Jakarta, Bandung, Remote" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-period">Period <span class="required">*</span></label>
+                        <div class="date-input-wrapper">
+                            <input type="text" id="exp-period" placeholder="Select period" required>
+                            <span class="calendar-icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-certificate">Certificate</label>
+                        <label for="exp-certificate-file" class="file-upload-label">
+                            <span class="upload-icon">↑</span>
+                            Upload document
+                            <input type="file" id="exp-certificate-file" accept=".pdf,.doc,.docx" hidden>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-description">Description</label>
+                        <textarea id="exp-description" rows="4" placeholder="Describe your work experience, responsibilities, and key achievements"></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('experience-modal')">Cancel</button>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Portfolio Modal -->
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Portofolio</h2>
+                <button class="close-modal" onclick="closeModal('portfolio-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="portfolio-form">
+                    <div class="form-group">
+                        <label for="port-project-name">Project Name <span class="required">*</span></label>
+                        <input type="text" id="port-project-name" placeholder="e.g. E-commerce Website, Mobile App Design" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="port-category">Category <span class="required">*</span></label>
+                        <input type="text" id="port-category" placeholder="e.g. Web Development, UI/UX Design, Mobile App" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="port-period">Period <span class="required">*</span></label>
+                        <div class="date-input-wrapper">
+                            <input type="text" id="port-period" placeholder="Select period" required>
+                            <span class="calendar-icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="port-attachment">Attachment</label>
+                        <label for="port-attachment-file" class="file-upload-label">
+                            <span class="upload-icon">↑</span>
+                            Upload attachment
+                            <input type="file" id="port-attachment-file" accept="image/*,.pdf" hidden>
+                        </label>
+                    </div>
+                    <div class="form-divider">
+                        <span>or</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="port-link">Link</label>
+                        <div class="link-input-wrapper">
+                            <span class="link-icon">🔗</span>
+                            <input type="url" id="port-link" placeholder="Paste embed link">
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn-cancel" onclick="closeModal('portfolio-modal')">Cancel</button>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/profile-management/index.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>

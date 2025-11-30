@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lengkapi Profil - SkillBridge Global</title>
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <!-- CSS Pages -->
+    <link rel="stylesheet" href="../../assets/css/pages/auth.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image-header">
+            </div>
+            <div class="nav-actions">
+                <a href="../../index.html" class="nav-btn">Beranda</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="register-section">
+        <h2>Lengkapi Profil Anda</h2>
+        <p>Lengkapi informasi profil untuk memulai perjalanan karir global Anda.</p>
+
+        <form id="complete-profile-form">
+            <div class="form-group">
+                <label>Profesi</label>
+                <input type="text" id="profession" placeholder="Contoh: UI/UX Designer" required>
+            </div>
+
+            <div class="form-group">
+                <label>Lokasi</label>
+                <input type="text" id="location" placeholder="Contoh: Jakarta, Indonesia" required>
+            </div>
+
+            <div class="form-group">
+                <label>Bio/Deskripsi Singkat</label>
+                <textarea id="bio" rows="4" placeholder="Ceritakan tentang diri Anda..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Skills (pisahkan dengan koma)</label>
+                <input type="text" id="skills" placeholder="Contoh: Figma, Adobe XD, UI Design" required>
+            </div>
+
+            <button class="btn-primary" type="submit">Lengkapi Profil</button>
+        </form>
+
+        <div class="login-link">
+            <a href="login.html">Lewati untuk sekarang</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SkillBridge Global</h4>
+                <p>Platform penghubung talenta Indonesia dengan peluang kerja global yang sesungguhnya.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SkillBridge Global. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/auth/complete-profile.js"></script>
+</body>
+</html>
+

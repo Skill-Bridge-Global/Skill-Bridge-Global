@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Project - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/project-marketplace/index.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="../virtual-workspace/index.html" class="nav-item">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="../certification-center/index.html" class="nav-item">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="../payment-escrow/index.html" class="nav-item">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="../profile-management/index.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">Project</h1>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="find-project">Find Project</button>
+            <button class="tab-btn" data-tab="my-application">My Application</button>
+        </div>
+
+        <!-- Tab Content: Find Project -->
+        <div id="find-project" class="tab-content active">
+            <!-- Search and Filters -->
+            <div class="search-filter-section">
+                <div class="search-box-large">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search" class="search-input-large" id="search-input">
+                </div>
+                
+                <div class="filters">
+                    <select class="filter-select" id="type-filter">
+                        <option value="">Type</option>
+                        <option value="project-based">Project Based</option>
+                        <option value="freelance">Freelance</option>
+                        <option value="contract">Contract</option>
+                    </select>
+                    
+                    <select class="filter-select" id="time-filter">
+                        <option value="">Time</option>
+                        <option value="1-week">1 Week</option>
+                        <option value="2-weeks">2 Weeks</option>
+                        <option value="3-weeks">3 Weeks</option>
+                        <option value="1-month">1 Month+</option>
+                    </select>
+                    
+                    <select class="filter-select" id="seniority-filter">
+                        <option value="">Seniority</option>
+                        <option value="junior">Junior</option>
+                        <option value="mid">Mid Level</option>
+                        <option value="senior">Senior</option>
+                    </select>
+                    
+                    <select class="filter-select" id="salary-filter">
+                        <option value="">Salary</option>
+                        <option value="0-500">$0 - $500</option>
+                        <option value="500-1000">$500 - $1,000</option>
+                        <option value="1000-2000">$1,000 - $2,000</option>
+                        <option value="2000+">$2,000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Recommendations Section -->
+            <section class="recommendations-section">
+                <h2 class="section-title">Recomendation :</h2>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be loaded by JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab Content: My Application -->
+        <div id="my-application" class="tab-content">
+            <div class="applications-container" id="applications-container">
+                <!-- Applications will be loaded by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/project-marketplace/index.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Certification - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/certification-center/index.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="../project-marketplace/index.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="../virtual-workspace/index.html" class="nav-item">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="../payment-escrow/index.html" class="nav-item">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="../profile-management/index.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">Skill Certification</h1>
+        </header>
+
+        <!-- Search and Filter -->
+        <div class="search-filter-container">
+            <div class="search-box-large">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search Task" class="search-input-large" id="search-input">
+            </div>
+            <select class="type-filter" id="type-filter">
+                <option value="">Type</option>
+                <option value="ui-ux">UI/UX</option>
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="web-developer">Web Developer</option>
+            </select>
+        </div>
+
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h2 class="hero-title">Tingkatkan Skill Anda</h2>
+                <p class="hero-text">Dapatkan sertifikasi profesional yang diakui secara internasional. Bangun kredibilitas dan tingkatkan kompetensi Anda dengan program pembelajaran terstruktur dan assessment yang komprehensif.</p>
+            </div>
+        </div>
+
+        <!-- Progress Cards -->
+        <div class="progress-cards-container">
+            <div class="progress-card" onclick="window.location.href='course-detail.html?course=ui-ux'">
+                <div class="progress-icon">✏️</div>
+                <div class="progress-info">
+                    <p class="progress-status">8/8 Progress</p>
+                    <p class="progress-label">UI/UX Design</p>
+                </div>
+                <button class="more-options">⋯</button>
+            </div>
+            <div class="progress-card" onclick="window.location.href='course-detail.html?course=frontend'">
+                <div class="progress-icon">💻</div>
+                <div class="progress-info">
+                    <p class="progress-status">5/8 Progress</p>
+                    <p class="progress-label">Frontend</p>
+                </div>
+                <button class="more-options">⋯</button>
+            </div>
+            <div class="progress-card" onclick="window.location.href='course-detail.html?course=web-dev'">
+                <div class="progress-icon">🌐</div>
+                <div class="progress-info">
+                    <p class="progress-status">6/8 Progress</p>
+                    <p class="progress-label">Web Developer</p>
+                </div>
+                <button class="more-options">⋯</button>
+            </div>
+        </div>
+
+        <!-- Task Recommendation Section -->
+        <section class="task-recommendation-section">
+            <h2 class="section-title">Task Recomendation</h2>
+            <div class="tasks-grid" id="tasks-grid">
+                <!-- Tasks will be loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Your Task Section -->
+        <section class="your-task-section">
+            <h2 class="section-title">Your Task</h2>
+            <div class="tasks-table-container">
+                <table class="tasks-table">
+                    <thead>
+                        <tr>
+                            <th>SKILL TASK NAME</th>
+                            <th>TASK TYPE</th>
+                            <th>DATE</th>
+                            <th>PROGRESS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks-tbody">
+                        <!-- Tasks will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/certification-center/index.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

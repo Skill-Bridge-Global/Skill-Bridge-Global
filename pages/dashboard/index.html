@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/dashboard/main-dashboard.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="../project-marketplace/index.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="../virtual-workspace/index.html" class="nav-item">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="../certification-center/index.html" class="nav-item">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="../payment-escrow/index.html" class="nav-item">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="../profile-management/index.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-left">
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+                <button class="notification-btn">
+                    <span class="bell-icon">🔔</span>
+                    <span class="notification-badge">3</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Welcome Message -->
+        <div class="welcome-section">
+            <h2 class="welcome-message">Selamat Datang, <span id="user-name">John</span>! 👋</h2>
+            <button class="download-report-btn">
+                <span class="icon">📥</span>
+                Download report
+            </button>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Rating Card -->
+            <div class="card rating-card">
+                <div class="card-header">
+                    <h3>Rating</h3>
+                    <button class="expand-btn">↗</button>
+                </div>
+                <div class="rating-chart">
+                    <svg class="donut-chart" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#E5E7EB" stroke-width="20"/>
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="#0066FF" stroke-width="20"
+                            stroke-dasharray="452" stroke-dashoffset="45" transform="rotate(-90 100 100)"
+                            class="progress-circle"/>
+                        <text x="100" y="95" text-anchor="middle" font-size="36" font-weight="bold" fill="#1F2937">90%</text>
+                        <text x="100" y="115" text-anchor="middle" font-size="14" fill="#6B7280">Rating</text>
+                    </svg>
+                </div>
+                <div class="rating-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">😊</span>
+                        <div class="stat-info">
+                            <p class="stat-value">90%</p>
+                            <p class="stat-label">Response rate</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">✅</span>
+                        <div class="stat-info">
+                            <p class="stat-value">1.298</p>
+                            <p class="stat-label">Order completion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earning Reports Card -->
+            <div class="card earning-card">
+                <div class="card-header">
+                    <h3>Earning reports</h3>
+                    <select class="period-selector">
+                        <option>Yearly</option>
+                        <option>Monthly</option>
+                        <option>Weekly</option>
+                    </select>
+                </div>
+                <div class="earning-info">
+                    <p class="earning-label">Income in 2025</p>
+                    <p class="earning-amount">$ 7.020,00 <span class="currency">USD</span> <span class="earning-change">● 2.3%</span></p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="earningChart" width="400" height="150"></canvas>
+                </div>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="card profile-card">
+                <div class="profile-image-container">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-image" id="profile-avatar">
+                </div>
+                <h3 class="profile-name" id="profile-name">John doe</h3>
+                <p class="profile-location">Surabaya</p>
+                <button class="edit-profile-btn" onclick="window.location.href='../profile-management/index.html'">
+                    <span class="icon">✏️</span>
+                    Edit profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Application Status Section -->
+        <section class="application-status-section">
+            <div class="section-header">
+                <h2>Application status</h2>
+                <button class="more-btn">⋯</button>
+            </div>
+            <div class="application-list" id="application-list">
+                <!-- Applications will be loaded by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Active Projects Section -->
+        <section class="active-projects-section">
+            <div class="section-header">
+                <h2>Active projects <span class="count">(12)</span></h2>
+                <button class="add-project-btn">
+                    <span class="icon">+</span>
+                    Add new project
+                </button>
+            </div>
+            <div class="projects-table-container">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Project</th>
+                            <th>Price</th>
+                            <th>Timeline</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-tbody">
+                        <!-- Projects will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/dashboard/main-dashboard.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

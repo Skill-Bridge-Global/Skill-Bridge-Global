@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/payment-escrow/index.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="../project-marketplace/index.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="../virtual-workspace/index.html" class="nav-item">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="../certification-center/index.html" class="nav-item">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="../profile-management/index.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">Payment</h1>
+            <div class="header-actions">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+                <button class="notification-btn">
+                    <span class="bell-icon">🔔</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Welcome Section with Earning -->
+        <section class="welcome-earning-section">
+            <div class="welcome-message-box">
+                <h2 class="greeting">Hello <span id="user-name">John Doe</span>, 👋</h2>
+                <p class="welcome-text">This is your earning report, and transaction history.<br>You can withdrawa it and enjoy the fruits of your hard work</p>
+            </div>
+
+            <div class="earning-chart-container">
+                <div class="earning-card">
+                    <div class="earning-header">
+                        <h3>Earning reports</h3>
+                        <select class="period-selector">
+                            <option>Yearly</option>
+                            <option>Monthly</option>
+                            <option>Weekly</option>
+                        </select>
+                    </div>
+                    <div class="earning-info">
+                        <p class="earning-label">Income in 2025</p>
+                        <p class="earning-amount">$ 7.020,00 <span class="currency">USD</span> <span class="earning-change">● 2.3%</span></p>
+                    </div>
+                    <div class="chart-canvas-container">
+                        <canvas id="earningChart" width="600" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="balance-card">
+                <p class="balance-label">Balance now:</p>
+                <p class="balance-amount">$ 5.250,20 <span class="currency-code">USD</span></p>
+                <button class="withdraw-btn" onclick="showWithdrawModal()">
+                    <span class="icon">↑</span>
+                    Withdraw
+                </button>
+            </div>
+        </section>
+
+        <!-- Invoice Summary Section -->
+        <section class="invoice-summary-section">
+            <div class="section-header">
+                <h2>Invoice Summary <span class="count">(12)</span></h2>
+                <button class="see-history-btn">
+                    <span class="icon">🔄</span>
+                    See Invoice History
+                </button>
+            </div>
+
+            <div class="invoice-table-container">
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th><span class="icon">📄</span> Invoice</th>
+                            <th><span class="icon">📅</span> Date</th>
+                            <th><span class="icon">👤</span> Name</th>
+                            <th><span class="icon">💵</span> Fee</th>
+                            <th><span class="icon">📁</span> Project</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-tbody">
+                        <!-- Invoices will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Withdraw Modal -->
+    <div id="withdraw-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Withdraw Amount</h3>
+                <button class="close-modal" onclick="closeWithdrawModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="available-balance">Available Balance: <strong>$5,250.20 USD</strong></p>
+                <form id="withdraw-form">
+                    <div class="form-group">
+                        <label>Amount to Withdraw</label>
+                        <div class="input-with-currency">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="withdraw-amount" placeholder="0.00" step="0.01" required>
+                            <span class="currency-code-input">USD</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Withdrawal Method</label>
+                        <select id="withdrawal-method" required>
+                            <option value="">Select method</option>
+                            <option value="bank">Bank Transfer</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="crypto">Cryptocurrency</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Account Details</label>
+                        <input type="text" id="account-details" placeholder="Enter account number or email" required>
+                    </div>
+                    <button type="submit" class="submit-withdraw-btn">Confirm Withdrawal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/payment-escrow/index.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

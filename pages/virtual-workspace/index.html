@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - SkillBridge Global</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css">
+    <link rel="stylesheet" href="../../assets/css/base/variables.css">
+    <link rel="stylesheet" href="../../assets/css/base/typography.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/pages/virtual-workspace/index.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">
+                <img src="../../assets/images/logo/logo.png" alt="SkillBridge Global Logo" class="logo-image">
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="menu-group">
+                <p class="menu-label">Main Menu</p>
+                <a href="../dashboard/index.html" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="../project-marketplace/index.html" class="nav-item">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Find Project</span>
+                </a>
+                <a href="index.html" class="nav-item active">
+                    <span class="nav-icon">💼</span>
+                    <span class="nav-text">Project Management</span>
+                </a>
+                <a href="../certification-center/index.html" class="nav-item">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-text">Skill Tests</span>
+                </a>
+                <a href="../payment-escrow/index.html" class="nav-item">
+                    <span class="nav-icon">💳</span>
+                    <span class="nav-text">Payment</span>
+                </a>
+            </div>
+
+            <div class="menu-group">
+                <p class="menu-label">Preference</p>
+                <a href="../profile-management/index.html" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-text">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" onclick="handleLogout()" class="nav-item logout">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Log Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title">Task Manager</h1>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="project">
+                <span class="tab-icon">📋</span> Project
+            </button>
+            <button class="tab-btn" data-tab="message">
+                <span class="tab-icon">💬</span> Massage 
+                <span class="notification-badge">99+</span>
+            </button>
+            <button class="tab-btn" data-tab="meeting">
+                <span class="tab-icon">📅</span> Meeting Schedule 
+                <span class="notification-badge">99+</span>
+            </button>
+        </div>
+
+        <!-- Tab Content: Project -->
+        <div id="project" class="tab-content active">
+            <!-- Toolbar -->
+            <div class="table-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box-table">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search projects..." id="project-search" class="search-input-table">
+                    </div>
+                    <select class="filter-select-table" id="status-filter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                        <option value="on-hold">On Hold</option>
+                    </select>
+                    <select class="filter-select-table" id="priority-filter">
+                        <option value="">All Priority</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn-secondary" onclick="bulkAction('archive')">
+                        <span>📦</span> Archive Selected
+                    </button>
+                    <button class="btn-primary" onclick="addNewProject()">
+                        <span>+</span> New Project
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="checkbox-col">
+                                <input type="checkbox" id="select-all">
+                            </th>
+                            <th class="sortable" data-sort="project">
+                                Project 
+                                <span class="sort-icon">↓</span>
+                            </th>
+                            <th class="sortable" data-sort="client">Client</th>
+                            <th class="sortable" data-sort="status">Status</th>
+                            <th class="sortable" data-sort="priority">Priority</th>
+                            <th class="sortable" data-sort="dueDate">Due Date</th>
+                            <th class="sortable" data-sort="progress">Progress</th>
+                            <th>Team</th>
+                            <th class="actions-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-tbody">
+                        <!-- Projects will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        Showing <span id="showing-from">1</span> to <span id="showing-to">8</span> of <span id="total-items">88</span> projects
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prev-btn">
+                            ← Previous
+                        </button>
+                        <div class="pagination-numbers" id="pagination-numbers">
+                            <!-- Page numbers will be loaded by JavaScript -->
+                        </div>
+                        <button class="pagination-btn" id="next-btn">
+                            Next →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Message -->
+        <div id="message" class="tab-content">
+            <div class="messaging-container">
+                <div class="conversation-list">
+                    <div class="conversation-search">
+                        <input type="text" placeholder="Search conversations..." class="search-input">
+                    </div>
+                    <div id="conversations">
+                        <!-- Conversations will be loaded by JavaScript -->
+                    </div>
+                </div>
+                <div class="message-panel">
+                    <div class="message-header">
+                        <h3>Select a conversation</h3>
+                    </div>
+                    <div class="messages-area" id="messages-area">
+                        <!-- Messages will be loaded by JavaScript -->
+                    </div>
+                    <div class="message-input-container">
+                        <input type="text" placeholder="Type a message..." class="message-input" id="message-input">
+                        <button class="send-btn" id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Meeting Schedule -->
+        <div id="meeting" class="tab-content">
+            <div class="meetings-container">
+                <div class="meetings-header">
+                    <h2>Upcoming Meetings</h2>
+                    <button class="add-meeting-btn">+ Schedule Meeting</button>
+                </div>
+                <div class="meetings-list" id="meetings-list">
+                    <!-- Meetings will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../assets/js/utils/storage.js"></script>
+    <script src="../../assets/js/pages/virtual-workspace/index.js"></script>
+    <script>
+        function handleLogout() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                sessionStorage.removeItem('loggedInUser');
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+</html>
+

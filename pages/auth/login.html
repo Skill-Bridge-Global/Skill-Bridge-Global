@@ -288,32 +288,30 @@
     </footer>
 </body>
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
+document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
-            
-    const fullname = document.getElementById('register-fullname').value;
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password').value;
 
-    // Simpan data pengguna di localStorage
-    const user = {
-        fullname: fullname,
-        email: email,
-        password: password
-    };
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-    localStorage.setItem(email, JSON.stringify(user));
-    
-    // Check if user exists
-    const user = Storage.get(email);
-    if (user && user.password === password) {
+    // Ambil data user dari localStorage
+    const userData = localStorage.getItem(email);
+
+    if (!userData) {
+        alert("Akun tidak ditemukan!");
+        return;
+    }
+
+    const user = JSON.parse(userData);
+
+    if (user.password === password) {
+        alert("Login berhasil!");
         sessionStorage.setItem('loggedInUser', email);
-        alert('Login berhasil!');
-        window.location.href = '../dashboard/index.html';
+        window.location.href = "../dashboard/index.html";
     } else {
-        alert('Email atau password salah!');
-    } 
+        alert("Email atau password salah!");
+    }
 });
+</script>
 
-    </script>
 </html>

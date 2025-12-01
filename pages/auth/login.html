@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar - SkillBridge Global</title>
+    <title>Login - SkillBridge Global</title>
 
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -288,18 +288,12 @@
     </footer>
 </body>
     <script>
-        document.getElementById('register-form').addEventListener('submit', function(e) {
+        document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
             
     const fullname = document.getElementById('register-fullname').value;
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
-
-    // Cek jika email sudah terdaftar di localStorage
-    if (localStorage.getItem(email)) {
-        alert('Email sudah terdaftar!');
-        return;
-    }
 
     // Simpan data pengguna di localStorage
     const user = {
@@ -309,11 +303,6 @@
     };
 
     localStorage.setItem(email, JSON.stringify(user));
-
-    alert('Registrasi berhasil!');
-    // Validate login
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
     
     // Check if user exists
     const user = Storage.get(email);
@@ -327,5 +316,4 @@
 });
 
     </script>
-    <script src="script.js"></script>
 </html>
